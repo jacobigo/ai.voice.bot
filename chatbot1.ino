@@ -66,8 +66,7 @@ void loop() {
   if (https.begin("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + (String)gemToken)) {  // HTTPS
 
     https.addHeader("Content-Type", "application/json");
-    String payload = String("{\"contents\": [{\"parts\":[{\"text\":" + res + "}]}],\"generationConfig\": {\"maxOutputTokens\": " + (String)gemMax + "}}");
-
+    String payload = String("{\"safetySettings\": [{'category': 7, 'threshold': 4}],\"contents\": [{\"parts\":[{\"text\":" + res + "}]}],\"generationConfig\": {\"maxOutputTokens\": " + (String)gemMax + "}}");
     //Serial.print("[HTTPS] GET...\n");
 
     // start connection and send HTTP header
