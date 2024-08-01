@@ -75,8 +75,8 @@ def listen_and_respond(source):
             engine.say(response_text)
             engine.runAndWait()
 	if not audio:
-		listen_for_wake_word(source)
-
+		# listen_for_wake_word(source)
+		listen_for_keyboard(source)
         except sr.UnknownValueError:
             time.sleep(2)
             print("Silence found, shutting up, listening...")
